@@ -1,3 +1,5 @@
 Flask
 pandas
 flask_restful
+grpcio
+grpcio-tools
