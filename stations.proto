@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service Stations {
+    rpc Station(StationsResponse) returns (StationsResponse);
+}
+
+message StationsResponse {
+    string gare_alias_libelle_noncontraint = 1;
+    string commune_libellemin = 2;
+    string uic_code = 3;
+    string adresse_cp = 4;
+    string departement_libellemin = 5;
+    string gare_regionsncf_libelle = 6;
+}

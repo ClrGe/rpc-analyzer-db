@@ -56,7 +56,7 @@ def getData():
     while True:
         i += 1
         rslt = cur.fetchall()
-        jsonResult = json.dumps(rslt, indent=4, sort_keys=True)
+        jsonResult = json.dumps(rslt)
 
         return json.loads(jsonResult), 200
 
