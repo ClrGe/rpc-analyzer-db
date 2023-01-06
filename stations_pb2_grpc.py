@@ -14,9 +14,9 @@ class StationsStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Station = channel.unary_unary(
-                '/Stations/Station',
-                request_serializer=stations__pb2.StationsResponse.SerializeToString,
+        self.Read = channel.unary_unary(
+                '/Stations/Read',
+                request_serializer=stations__pb2.StationsRequest.SerializeToString,
                 response_deserializer=stations__pb2.StationsResponse.FromString,
                 )
 
@@ -24,7 +24,7 @@ class StationsStub(object):
 class StationsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Station(self, request, context):
+    def Read(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,9 +33,9 @@ class StationsServicer(object):
 
 def add_StationsServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Station': grpc.unary_unary_rpc_method_handler(
-                    servicer.Station,
-                    request_deserializer=stations__pb2.StationsResponse.FromString,
+            'Read': grpc.unary_unary_rpc_method_handler(
+                    servicer.Read,
+                    request_deserializer=stations__pb2.StationsRequest.FromString,
                     response_serializer=stations__pb2.StationsResponse.SerializeToString,
             ),
     }
@@ -49,7 +49,7 @@ class Stations(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Station(request,
+    def Read(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class Stations(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Stations/Station',
-            stations__pb2.StationsResponse.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/Stations/Read',
+            stations__pb2.StationsRequest.SerializeToString,
             stations__pb2.StationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
