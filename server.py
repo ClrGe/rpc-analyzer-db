@@ -30,7 +30,10 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
 
             result.append(response)
 
-        return result
+        response_list = stations_pb2.responseListPB()
+        response_list.station.extend(result)
+        return response_list
+
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
