@@ -8,7 +8,7 @@ import stations_pb2, stations_pb2_grpc
 class StationClient(object):
     def __init__(self):
         pass
-    def get_station(self, stub):
+    def Read(self, stub):
         read_request = stations_pb2.StationsRequest()
         return stub.Read(read_request)
 
