@@ -18,8 +18,8 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
 
         rslt = cur.fetchall()
         result = stations_pb2.StationsResponse(exe)
-        toto = "toto"
-        return toto
+        
+        return result
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
