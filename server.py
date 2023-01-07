@@ -39,7 +39,7 @@ server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
 stations_pb2_grpc.add_StationsServicer_to_server(StationsServicer(), server)
 
-print("Stations server running on 9200...")
-server.add_insecure_port('[::]:9200')
+print("Stations server running on 9600...")
+server.add_insecure_port('[::]:9600')
 server.start()
 server.wait_for_termination()
