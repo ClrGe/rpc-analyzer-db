@@ -16,7 +16,7 @@ class StationsStub(object):
         """
         self.Read = channel.unary_unary(
                 '/Stations/Read',
-                request_serializer=stations__pb2.StationsResponse.SerializeToString,
+                request_serializer=stations__pb2.StationsRequest.SerializeToString,
                 response_deserializer=stations__pb2.StationsResponse.FromString,
                 )
 
@@ -35,7 +35,7 @@ def add_StationsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Read': grpc.unary_unary_rpc_method_handler(
                     servicer.Read,
-                    request_deserializer=stations__pb2.StationsResponse.FromString,
+                    request_deserializer=stations__pb2.StationsRequest.FromString,
                     response_serializer=stations__pb2.StationsResponse.SerializeToString,
             ),
     }
@@ -60,7 +60,7 @@ class Stations(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Stations/Read',
-            stations__pb2.StationsResponse.SerializeToString,
+            stations__pb2.StationsRequest.SerializeToString,
             stations__pb2.StationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

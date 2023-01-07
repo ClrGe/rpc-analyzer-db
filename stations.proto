@@ -4,7 +4,7 @@ service Stations {
     rpc Read(StationsRequest) returns (StationsResponse);
 }
 
-StationsRequest {
+message StationsRequest {
     string zipcode = 1;
 }
 
