@@ -12,8 +12,7 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
     def Read(self, request, context):
         connection = sqlite3.connect('data/DataAnalyzer.db')
         cur = connection.cursor()
-        zipcode = "76000"
-        sql = "SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel WHERE adresse_cp='76000'"
+        sql = "SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel"
         exe = cur.execute(sql)
 
         rslt = cur.fetchall()
