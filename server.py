@@ -17,7 +17,7 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
         exe = cur.execute(sql)
 
         rslt = cur.fetchall()
-        result = stations_pb2.StatusRes(exe)
+        result = stations_pb2.StationsResponse(exe)
 
         return result
 
