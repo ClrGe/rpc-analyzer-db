@@ -17,8 +17,19 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
         exe = cur.execute(sql)
 
         rslt = cur.fetchall()
-        result = stations_pb2.StationsResponse(exe)
-        
+
+        result = []
+        for cur in rslt:
+            response =  stations_pb2.StationsResponse(exe)
+
+            response.gare_alias_libelle = str(cur[1])
+            response.gare_regionsncf = str(cur[2])
+            response.adresse_cp = str(cur[3])
+            response.departement = str(cur[4])
+            response.uic_code = str(cur[5])
+
+            result.append(response)
+
         return result
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
