@@ -13,15 +13,13 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
         connection = sqlite3.connect('data/DataAnalyzer.db')
         cur = connection.cursor()
 
-        cur.execute("SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel WHERE adresse_cp='76000'")
+        sql = "SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel WHERE adresse_cp='76000'"
+        exe = cur.execute(sql)
 
-        i = 0
+        rslt = cur.fetchall()
+        result = stations_pb2.StatusRes(exe)
 
-        while True:
-            i += 1
-            rslt = cur.fetchall()
-        print(rslt)
-        return stations_pb2.StationResponse(rslt)
+        return result
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
