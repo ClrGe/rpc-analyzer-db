@@ -4,10 +4,6 @@ service Stations {
     rpc Read(StationsResponse) returns (StationsResponse);
 }
 
-// message StationsRequest {
-//     string zipcode = 1;
-// }
-
 message StationsResponse {
     string gare_alias_libelle = 1;
     string uic_code = 3;
