@@ -1,15 +1,21 @@
 syntax = "proto3";
 
 service Stations {
-    rpc Read(StationsResponse) returns (StationsResponse);
+    rpc Read(StationsRequest) returns (StationsResponse);
+}
+
+StationsRequest {
+    string zipcode = 1;
 }
 
 message StationsResponse {
-    string gare_alias_libelle = 1;
-    string uic_code = 3;
-    string adresse_cp = 4;
-    string departement = 5;
-    string gare_regionsncf = 6;
+    // string gare_alias_libelle = 1;
+    // string gare_regionsncf = 2;
+    // string adresse_cp = 3;
+    // string departement = 4;
+    // string uic_code = 5;
+    string zipcode = 1;
+
 }
 
 
