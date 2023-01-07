@@ -9,7 +9,7 @@ import stations_pb2_grpc as stations_pb2_grpc
 
 class StationsServicer(stations_pb2_grpc.StationsServicer):
 
-    def Read():
+    def Read(self, request, context):
         connection = sqlite3.connect('data/DataAnalyzer.db')
         cur = connection.cursor()
 
