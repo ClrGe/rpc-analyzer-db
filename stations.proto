@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 service Stations {
-    rpc Read(readResponsePB) returns (readResponsePB);
+    rpc Read(readRequestPB) returns (readResponseListPB);
 }
 
 message readRequestPB {
