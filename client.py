@@ -10,13 +10,13 @@ class StationClient(object):
         pass
     def get_station(self, stub):
         read_request = stations_pb2.StationsRequest()
-        read_request.zipcode = "76000"
         return stub.Read(read_request)
 
 def run():
     channel = grpc.insecure_channel('localhost:40084')
     stub = stations_pb2_grpc.StationsStub(channel)
     print(stub)
+    response = stub.StationsResponse()
+    print(reponse.value)
 
-if __name__ == '__main__':
-    run()
+run()
