@@ -1,14 +1,14 @@
 syntax = "proto3";
 
 service Stations {
-    rpc Read(StationsRequest) returns (StationsResponse);
+    rpc Read(readRequestPB) returns (readResponsePB);
 }
 
-message StationsRequest {
+message readRequestPB {
     string zipcode = 1;
 }
 
-message StationsResponse {
+message readResponsePB {
     // string gare_alias_libelle = 1;
     // string gare_regionsncf = 2;
     // string adresse_cp = 3;
@@ -19,6 +19,6 @@ message StationsResponse {
 }
 
 
-message responseListPB {
-    repeated StationsResponse station = 1;
+message readResponseListPB {
+    repeated readResponsePB station = 1;
 }

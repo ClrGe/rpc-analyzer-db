@@ -20,7 +20,7 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
 
         result = []
         for cur in rslt:
-            response =  stations_pb2.StationsResponse(exe)
+            response =  stations_pb2.readResponsePB(exe)
 
             response.gare_alias_libelle = str(cur[1])
             response.gare_regionsncf = str(cur[2])
@@ -30,7 +30,7 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
 
             result.append(response)
 
-        response_list = stations_pb2.responseListPB()
+        response_list = stations_pb2.readResponseListPB()
         response_list.station.extend(result)
         return response_list
 
