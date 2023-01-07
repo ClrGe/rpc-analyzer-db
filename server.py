@@ -20,19 +20,19 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
 
         result = []
         for cur in rslt:
-            response =  stations_pb2.readResponsePB(exe)
+            readResponsePB =  stations_pb2.readResponsePB(exe)
 
-            response.gare_alias_libelle = str(cur[1])
-            response.gare_regionsncf = str(cur[2])
-            response.adresse_cp = str(cur[3])
-            response.departement = str(cur[4])
-            response.uic_code = str(cur[5])
+            readResponsePB.gare_alias_libelle = str(cur[1])
+            readResponsePB.gare_regionsncf = str(cur[2])
+            readResponsePB.adresse_cp = str(cur[3])
+            readResponsePB.departement = str(cur[4])
+            readResponsePB.uic_code = str(cur[5])
 
-            result.append(response)
+            result.append(readResponsePB)
 
-        response_list = stations_pb2.readResponseListPB()
-        response_list.station.extend(result)
-        return response_list
+        readResponseListPB = stations_pb2.readResponseListPB()
+        readResponseListPB.station.extend(result)
+        return readResponseListPB
 
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
