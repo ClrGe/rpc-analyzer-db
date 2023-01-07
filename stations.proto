@@ -18,5 +18,6 @@ message readResponsePB {
 
 
 message readResponseListPB {
-    repeated readResponsePB station = 1;
+    string zipcode = 1;
+    repeated readResponsePB station = 2;
 }
