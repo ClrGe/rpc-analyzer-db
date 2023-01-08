@@ -1,8 +1,5 @@
 import grpc
 from concurrent import futures
-import time
-import json
-from datetime import date
 import sqlite3
 
 import stations
@@ -26,5 +23,5 @@ def serve():
     server.add_insecure_port('[::]:9600')
     server.start()
     server.wait_for_termination()
-    
+
 serve()
