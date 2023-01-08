@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0estations.proto\x1a\x19google/protobuf/any.proto\" \n\rreadRequestPB\x12\x0f\n\x07zipcode\x18\x01 \x01(\t\"\x80\x01\n\x0ereadResponsePB\x12\x1a\n\x12gare_alias_libelle\x18\x01 \x01(\t\x12\x17\n\x0fgare_regionsncf\x18\x02 \x01(\t\x12\x12\n\nadresse_cp\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65partement\x18\x04 \x01(\t\x12\x10\n\x08uic_code\x18\x05 \x01(\t\"6\n\x12readResponseListPB\x12 \n\x07station\x18\x01 \x03(\x0b\x32\x0f.readResponsePB28\n\x08Stations\x12,\n\x04Read\x12\x0f.readResponsePB\x1a\x13.readResponseListPBb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0estations.proto\x1a\x19google/protobuf/any.proto\" \n\rreadRequestPB\x12\x0f\n\x07zipcode\x18\x01 \x01(\t\"\xaf\x01\n\x0ereadResponsePB\x12$\n\x05value\x18\x01 \x03(\x0b\x32\x15.readResponsePB.Value\x1aw\n\x05Value\x12\x1a\n\x12gare_alias_libelle\x18\x01 \x01(\t\x12\x17\n\x0fgare_regionsncf\x18\x02 \x01(\t\x12\x12\n\nadresse_cp\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65partement\x18\x04 \x01(\t\x12\x10\n\x08uic_code\x18\x05 \x01(\t\"6\n\x12readResponseListPB\x12 \n\x07station\x18\x01 \x03(\x0b\x32\x0f.readResponsePB28\n\x08Stations\x12,\n\x04Read\x12\x0f.readResponsePB\x1a\x13.readResponseListPBb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'stations_pb2', globals())
@@ -24,9 +24,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _READREQUESTPB._serialized_start=45
   _READREQUESTPB._serialized_end=77
   _READRESPONSEPB._serialized_start=80
-  _READRESPONSEPB._serialized_end=208
-  _READRESPONSELISTPB._serialized_start=210
-  _READRESPONSELISTPB._serialized_end=264
-  _STATIONS._serialized_start=266
-  _STATIONS._serialized_end=322
+  _READRESPONSEPB._serialized_end=255
+  _READRESPONSEPB_VALUE._serialized_start=136
+  _READRESPONSEPB_VALUE._serialized_end=255
+  _READRESPONSELISTPB._serialized_start=257
+  _READRESPONSELISTPB._serialized_end=311
+  _STATIONS._serialized_start=313
+  _STATIONS._serialized_end=369
 # @@protoc_insertion_point(module_scope)
