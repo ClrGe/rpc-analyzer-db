@@ -21,17 +21,17 @@ class Station(object):
 
         result = []
         i = 0
+        response =  stations_pb2.readResponsePB().Value()
         for i in rslt:
-            response =  stations_pb2.readResponsePB().Value()
-            response.gare_alias_libelle = str(i[1])
-                #response.gare_regionsncf = str(i[2])
-                #response.adresse_cp = str(i[3])
+            response = i
+            print(response)
+            response.station = rslt[1]
                 #response.departement = str(i[4])
                 #response.uic_code = str(i[5])
 
-            result.append(response)
+            result.append(rslt)
             
 
         response_list = stations_pb2.readResponsePB()
-        response_list.value.extend(rslt)
+        response_list.value.append(rslt)
         return response_list

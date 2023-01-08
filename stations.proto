@@ -11,12 +11,11 @@ message readRequestPB {
 
 message readResponsePB {
     message Value {
-        string gare_alias_libelle = 1;
-        string gare_regionsncf = 2;
-        string adresse_cp = 3;
-        string departement = 4;
-        string uic_code = 5;
-        string uic_code = 6;
+        string gare_alias_libelle = 4;
+        string uic_code = 2;
+        string adresse_cp = 5;
+        string gare_regionsncf = 23;
+        string ui_code = 6;
 
     }
     repeated Value value = 1;
