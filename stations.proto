@@ -20,7 +20,3 @@ message readResponsePB {
     }
     repeated Value value = 1;
 }
-
-message readResponseListPB {
-    repeated readResponsePB station = 1;
-}
