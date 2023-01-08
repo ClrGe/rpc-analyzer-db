@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0estations.proto\x1a\x19google/protobuf/any.proto\" \n\rreadRequestPB\x12\x0f\n\x07zipcode\x18\x01 \x01(\t\"\xb0\x06\n\x0ereadResponsePB\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\x12\x11\n\tcode_gare\x18\x02 \x01(\t\x12\x10\n\x08uic_code\x18\x03 \x01(\t\x12&\n\x08\x64tfinval\x18\x04 \x01(\x0b\x32\x14.google.protobuf.Any\x12\"\n\x1a\x61lias_libelle_noncontraint\x18\x05 \x01(\t\x12\x12\n\nadresse_cp\x18\x06 \x01(\t\x12\x14\n\x0c\x63ommune_code\x18\x07 \x01(\t\x12\x1a\n\x12\x63ommune_libellemin\x18\x08 \x01(\t\x12\x1a\n\x12\x64\x65partement_numero\x18\t \x01(\t\x12\x1e\n\x16\x64\x65partement_libellemin\x18\n \x01(\t\x12(\n longitude_entreeprincipale_wgs84\x18\x0b \x01(\t\x12\'\n\x1flatitude_entreeprincipale_wgs84\x18\x0c \x01(\t\x12\x1a\n\x12segmentdrg_libelle\x18\r \x01(\t\x12\x33\n\x15niveauservice_libelle\x18\x0e \x01(\x0b\x32\x14.google.protobuf.Any\x12\x12\n\nrg_libelle\x18\x0f \x01(\t\x12\x0c\n\x04tvss\x18\x10 \x01(\t\x12\"\n\x04sops\x18\x11 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x0c\n\x04gare\x18\x12 \x01(\t\x12\'\n\x1fgare_alias_libelle_noncontraint\x18\x13 \x01(\t\x12\"\n\x1agare_alias_libelle_fronton\x18\x14 \x01(\t\x12\x13\n\x0bgare_drg_on\x18\x15 \x01(\t\x12\x19\n\x11gare_etrangere_on\x18\x16 \x01(\t\x12\x1d\n\x15gare_agencegc_libelle\x18\x17 \x01(\t\x12\x1f\n\x17gare_regionsncf_libelle\x18\x18 \x01(\t\x12-\n\x0fgare_ug_libelle\x18\x19 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x17\n\x0fgare_ut_libelle\x18\x1a \x01(\t\x12\x13\n\x0bgare_nbpltf\x18\x1b \x01(\r\x12\x0b\n\x03tvs\x18\x1c \x01(\t\"6\n\x12readResponseListPB\x12 \n\x07station\x18\x01 \x03(\x0b\x32\x0f.readResponsePB28\n\x08Stations\x12,\n\x04Read\x12\x0f.readResponsePB\x1a\x13.readResponseListPBb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0estations.proto\x1a\x19google/protobuf/any.proto\" \n\rreadRequestPB\x12\x0f\n\x07zipcode\x18\x01 \x01(\t\"\x80\x01\n\x0ereadResponsePB\x12\x1a\n\x12gare_alias_libelle\x18\x01 \x01(\t\x12\x17\n\x0fgare_regionsncf\x18\x02 \x01(\t\x12\x12\n\nadresse_cp\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65partement\x18\x04 \x01(\t\x12\x10\n\x08uic_code\x18\x05 \x01(\t\"6\n\x12readResponseListPB\x12 \n\x07station\x18\x01 \x03(\x0b\x32\x0f.readResponsePB28\n\x08Stations\x12,\n\x04Read\x12\x0f.readResponsePB\x1a\x13.readResponseListPBb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'stations_pb2', globals())
@@ -24,9 +24,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _READREQUESTPB._serialized_start=45
   _READREQUESTPB._serialized_end=77
   _READRESPONSEPB._serialized_start=80
-  _READRESPONSEPB._serialized_end=896
-  _READRESPONSELISTPB._serialized_start=898
-  _READRESPONSELISTPB._serialized_end=952
-  _STATIONS._serialized_start=954
-  _STATIONS._serialized_end=1010
+  _READRESPONSEPB._serialized_end=208
+  _READRESPONSELISTPB._serialized_start=210
+  _READRESPONSELISTPB._serialized_end=264
+  _STATIONS._serialized_start=266
+  _STATIONS._serialized_end=322
 # @@protoc_insertion_point(module_scope)
