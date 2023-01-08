@@ -33,5 +33,5 @@ class Station(object):
             
 
         response_list = stations_pb2.readResponsePB()
-        response_list.value.extend(result)
+        response_list.value.extend(rslt)
         return response_list
