@@ -1,6 +1,7 @@
 import grpc
 from concurrent import futures
 import time
+import json
 from datetime import date
 import sqlite3
 
@@ -13,13 +14,14 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
         connection = sqlite3.connect('data/DataAnalyzer.db')
         cur = connection.cursor()
         sql = "SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel"
-        exe = cur.execute(sql)
 
         rslt = cur.fetchall()
-
+        metadata = dict(context.invocation_metadata())
+        print(metadata)
+        print(rslt)
         result = []
         for cur in rslt:
-            readResponsePB =  stations_pb2.readResponsePB(exe)
+            readResponsePB =  stations_pb2.readResponsePB(rslt)
 
             readResponsePB.gare_alias_libelle = str(cur[1])
             readResponsePB.gare_regionsncf = str(cur[2])
@@ -30,7 +32,7 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
             result.append(readResponsePB)
 
         readResponseListPB = stations_pb2.readResponseListPB()
-        readResponseListPB.station.extend(result)
+        readResponseListPB.station.extend(rslt)
         return readResponseListPB
 
 

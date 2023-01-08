@@ -1,23 +1,55 @@
 syntax = "proto3";
+import "google/protobuf/any.proto";
 
 service Stations {
-    rpc Read(readRequestPB) returns (readResponseListPB);
+    rpc Read(readResponsePB) returns (readResponseListPB);
 }
 
 message readRequestPB {
     string zipcode = 1;
 }
 
+// message readResponsePB {
+//     string gare_alias_libelle = 1;
+//     string gare_regionsncf = 2;
+//     string adresse_cp = 3;
+//     string departement = 4;
+//     string uic_code = 5;
+// }
+
+
+
 message readResponsePB {
-    string gare_alias_libelle = 1;
-    string gare_regionsncf = 2;
-    string adresse_cp = 3;
-    string departement = 4;
-    string uic_code = 5;
+    string code = 1;
+    string code_gare = 2;
+    string uic_code = 3;
+    google.protobuf.Any dtfinval = 4;
+    string alias_libelle_noncontraint = 5;
+    string adresse_cp = 6;
+    string commune_code = 7;
+    string commune_libellemin = 8;
+    string departement_numero = 9;
+    string departement_libellemin = 10;
+    string longitude_entreeprincipale_wgs84 = 11;
+    string latitude_entreeprincipale_wgs84 = 12;
+    string segmentdrg_libelle = 13;
+    google.protobuf.Any niveauservice_libelle = 14;
+    string rg_libelle = 15;
+    string tvss = 16;
+    google.protobuf.Any sops = 17;
+    string gare = 18;
+    string gare_alias_libelle_noncontraint = 19;
+    string gare_alias_libelle_fronton = 20;
+    string gare_drg_on = 21;
+    string gare_etrangere_on = 22;
+    string gare_agencegc_libelle = 23;
+    string gare_regionsncf_libelle = 24;
+    google.protobuf.Any gare_ug_libelle = 25;
+    string gare_ut_libelle = 26;
+    uint32 gare_nbpltf = 27;
+    string tvs = 28;
 }
 
-
 message readResponseListPB {
-    string zipcode = 1;
-    repeated readResponsePB station = 2;
+    repeated readResponsePB station = 1;
 }
