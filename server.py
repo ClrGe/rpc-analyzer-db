@@ -2,23 +2,20 @@ import grpc
 from concurrent import futures
 import sqlite3
 
-import stations
 import stations_pb2 as stations_pb2
 import stations_pb2_grpc as stations_pb2_grpc
 
 class StationsServicer(stations_pb2_grpc.StationsServicer):
 
 
-    def Read(self, request, context):
+    def Read(self, readRequestPB, context):
 
-        conn = sqlite3.connect('data/DataAnalyzer.db')
-        curs = conn.cursor()
-        cp = "75007"
+        cp = readRequestPB.zipcode
         connection = sqlite3.connect('data/DataAnalyzer.db')
         cur = connection.cursor()
         sql = "SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel WHERE adresse_cp = " + cp
 
-        exe = curs.execute(sql)
+        exe = cur.execute(sql)
 
         rslt = exe.fetchall()
         print(rslt)
@@ -41,6 +38,7 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
         return response_list
 
 def serve():
+
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
     stations_pb2_grpc.add_StationsServicer_to_server(StationsServicer(), server)
