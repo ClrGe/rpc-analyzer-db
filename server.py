@@ -44,13 +44,12 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
     
 # serve function starts the gRPC server and listens on port 9600
 def serve():
-
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-
     stations_pb2_grpc.add_StationsServicer_to_server(StationsServicer(), server)
-
+    
     print("Stations server running on 9600...")
     server.add_insecure_port('[::]:9600')
+    
     server.start()
     server.wait_for_termination()
 
