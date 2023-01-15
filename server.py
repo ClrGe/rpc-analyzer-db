@@ -2,13 +2,19 @@
 import grpc
 from concurrent import futures
 import sqlite3
+from dotenv import load_dotenv
 # import files generated from the proto definition
 import stations_pb2 as stations_pb2
 import stations_pb2_grpc as stations_pb2_grpc
 
+load_dotenv()
+
+PORT = os.getenv('PORT')
+DB = os.getenv('DB')
+
 # Connect to the SQLite3 database
 def connectDB():
-    connection = sqlite3.connect('data/DataAnalyzer.db')
+    connection = sqlite3.connect(DB)
     return connection
 
 # StationsServicer class is implemented to handle the gRPC requests
