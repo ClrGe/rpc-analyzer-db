@@ -2,7 +2,7 @@
 import grpc
 from concurrent import futures
 import sqlite3
-
+# import files generated from the proto definition
 import stations_pb2 as stations_pb2
 import stations_pb2_grpc as stations_pb2_grpc
 
