@@ -1,3 +1,4 @@
+# This script creates a gRPC server that serves train station data by reading data from a sqlite3 database
 import grpc
 from concurrent import futures
 import sqlite3
@@ -5,28 +6,32 @@ import sqlite3
 import stations_pb2 as stations_pb2
 import stations_pb2_grpc as stations_pb2_grpc
 
+# Connect to the SQLite3 database
+def connectDB():
+    connection = sqlite3.connect('data/DataAnalyzer.db')
+    return connection
+
+# StationsServicer class is implemented to handle the gRPC requests
 class StationsServicer(stations_pb2_grpc.StationsServicer):
-
-
+    # Read function is implemented to read the data from the sqlite3 database based on the zipcode passed in the request
     def Read(self, readRequestPB, context):
-
+        connectDB()
+        
         cp = readRequestPB.zipcode
-        connection = sqlite3.connect('data/DataAnalyzer.db')
         cur = connection.cursor()
+        
+        # sql query to fetch the data based on the zipcode
         sql = "SELECT gare_alias_libelle, gare_regionsncf, adresse_cp,  departement, uic_code FROM referentiel WHERE adresse_cp = " + cp
-
         exe = cur.execute(sql)
-
         rslt = exe.fetchall()
-        print(rslt)
-
+        
+        # list to hold the data to be returned as the response
         result = []
 
         for i in rslt:
             response = stations_pb2.readResponsePB().Value()
             response.uic_code = str(i[4])
             response.gare_alias_libelle = str(i[0])
-            response.gare_alias_libelle = str(i[3])
             response.adresse_cp = str(i[2])
             response.gare_regionsncf = str(i[1])
             result.append(response)
@@ -36,7 +41,8 @@ class StationsServicer(stations_pb2_grpc.StationsServicer):
         print(response_list)
 
         return response_list
-
+    
+# serve function starts the gRPC server and listens on port 9600
 def serve():
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

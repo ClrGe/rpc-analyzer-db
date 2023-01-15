@@ -15,7 +15,7 @@ message readResponsePB {
         string uic_code = 2;
         string adresse_cp = 5;
         string gare_regionsncf = 23;
-        string ui_code = 6;
+        string l = 6;
 
     }
     repeated Value value = 1;
